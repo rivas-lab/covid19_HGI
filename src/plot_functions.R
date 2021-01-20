@@ -5,6 +5,25 @@ suppressWarnings(suppressPackageStartupMessages({
     library(data.table)
 }))
 
+p_PRS_phewas <- function(df){
+    df %>% ggplot(aes(x = -log10(P), y = reorder(GBE_short_name, -log10(P)), color=plot_color, shape=plot_shape)) +
+    geom_point(size=4) + xlim(0, NA) + theme_bw(base_size=12) +
+    scale_shape_manual(values=setNames(c(17, 6), c('+', '-'))) +
+    guides(
+        color = guide_legend(title='Category', size=6),
+        shape = FALSE
+    ) +
+    theme(
+        legend.position=c(.7,.2),
+        legend.title = element_text(size = 10),
+        legend.text = element_text(size = 10)
+    ) +
+    labs(
+        x = latex2exp::TeX('PRS-PheWAS -log_{10}P'),
+        y = 'UKB phenotype'
+    )
+}
+
 p_beta_vs_beta <- function(df){
     df %>%
     mutate(
