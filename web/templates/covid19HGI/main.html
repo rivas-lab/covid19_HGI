@@ -19,22 +19,47 @@
         <div class="col col-md-12">
             <h1>COVID-19 HGI, PRS-PheWAS results</h1>
             <hr/>
-            <h5>2021/1/20</h5>
+            <h5>2021/1/18-20</h5>
             <p>Yosuke Tanigawa and Manuel A. Rivas</p>
             <p>Note: this page is under active development.</p>
+            <hr/>
         </div>
     </div>
 
     <div class="row">
-        <div class="col col-md-6">
-            <h1>A</h1>
-            <hr/>
-        </div>
-        <div class="col col-md-6">
-            <h1>B</h1>
+        <div class="col col-md-12">
+            <h2>PRS-PheWAS results</h2>
+            <ul>
+                {% for HGI_suffix in _HGI_suffices %}
+                <li>PRS PheWAS results for <a href="/covid19HGI/PRS_PheWAS/{{ HGI_suffix }}">{{ HGI_suffix }}</a></li>
+                {% endfor %}
+            </ul>
             <hr/>
         </div>
     </div>
+
+    {%for clumpp in [ '1e-5' ] %}
+    <div class="row">
+        <div class="col col-md-12">
+            <h2>LD clumping p-value threshold: {{ clumpp }}</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        {%for HGI_cc in [ 'B2', 'C2' ] %}
+        <div class="col col-md-6">
+            <h3>{{ HGI_cc }}</h3>
+            <img class="img-fluid" src="{{ url_for('static', filename='covid19HGI/fig/UKB_PRS_PheWAS' )}}/{{ _HGI_sx }}/{{ _HGI_v }}_{{ HGI_cc }}_{{ _HGI_sx }}.clump{{ clumpp }}.png" />
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="row">
+        <div class="col col-md-12">
+            <hr/>
+        </div>
+    </div>
+    {% endfor %}
 
 </div>
 {% endblock %}
