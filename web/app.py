@@ -37,6 +37,23 @@ def covid19HGI_prs_phewas(HGI_sx):
         _clumpp = '1e-5'
     )
 
+@app.route('/covid19HGI/PRS_PheWAS/<HGI_sx>/chr3')
+def covid19HGI_prs_phewas_chr3(HGI_sx):
+    return render_template(
+        'covid19HGI/prs_phewas_chr3.html',
+        #=======================#
+        _HGI_v = 'HGIrel5',
+        _HGI_case_controls=['B2', 'C2', 'B1', 'A2'],
+        _HGI_suffices=['eur_leave_ukbb_23andme', 'eur_leave_23andme', 'leave_UKBB_23andme', 'leave_23andme'],
+        _clump_p1s=['1e-5', '1e-4', '1e-3'],
+        _GBE_IDs=['INI30130', 'INI30190', 'INI30610', 'INI10030610'],
+        #=======================#
+        HGI_sx = HGI_sx,
+        _HGI_cc = 'B2',
+        _clumpp = '1e-5'
+    )
+
+
 #Create the main driver function
 if __name__ == '__main__':
     #call the run method
