@@ -69,18 +69,12 @@
 <div class="container">
     <div class="row">
         <div class="col col-md-12">
-            <h1>COVID-19 HGI, PRS-PheWAS results</h1>
+            <h1>COVID-19 HGI, PRS-PheWAS analysis</h1>
             <hr/>
             <h5>2021/1/18-20</h5>
             <p>Yosuke Tanigawa and Manuel A. Rivas</p>
             <p>Note: this page is under active development.</p>
             <hr/>
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col col-md-12">
-            <h2>PRS-PheWAS results</h2>
             <ul>
                 {% for HGI_suffix in _HGI_suffices %}
                 <li>PRS PheWAS results for <a href="/covid19HGI/PRS_PheWAS/{{ HGI_suffix }}">{{ HGI_suffix }}</a></li>
@@ -113,15 +107,9 @@
     </div>
     {% endfor %}
 
-
     <div class="row">
         <div class="col col-md-12">
-            <hr/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col col-md-12">
-            <h2 align="center">PRS-PheWAS results (p < 1e-5)</h2>
+            <h2 align="center">All PRS-PheWAS associations (p < 1e-5)</h2>
             <br>
             <!-- https://mottie.github.io/tablesorter/docs/index.html -->
             <table id="table_results"> <!-- bootstrap classes added by the uitheme widget -->
@@ -177,4 +165,3 @@
 
 </div>
 {% endblock %}
-
