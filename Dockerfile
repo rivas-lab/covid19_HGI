@@ -1,9 +1,10 @@
-FROM python:3
+FROM python:3-slim
 # RUN apt-get -y update \
 #  && apt−get install −y pip3 build−essential
 
-COPY requirements.txt requirements.txt
+COPY web/requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
-COPY . .
+COPY web .
+COPY fig fig
 ENTRYPOINT ["python3"]
 CMD ["app.py"]
