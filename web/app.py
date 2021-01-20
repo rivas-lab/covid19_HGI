@@ -55,6 +55,7 @@ def covid19HGI_main():
         _HGI_suffices=['eur_leave_ukbb_23andme', 'eur_leave_23andme', 'leave_UKBB_23andme', 'leave_23andme'],
         _clump_p1s=['1e-5', '1e-4', '1e-3'],
         #=======================#
+        # namespace = 'RIVAS_HG19',
         _HGI_sx = 'eur_leave_ukbb_23andme',
         _HGI_cc = 'B2',
         _clumpp = '1e-5',
@@ -73,6 +74,7 @@ def covid19HGI_prs_phewas(HGI_sx):
         _HGI_suffices=['eur_leave_ukbb_23andme', 'eur_leave_23andme', 'leave_UKBB_23andme', 'leave_23andme'],
         _clump_p1s=['1e-5', '1e-4', '1e-3'],
         #=======================#
+        # namespace = 'RIVAS_HG19',
         HGI_sx = HGI_sx,
         _HGI_cc = 'B2',
         _clumpp = '1e-5'
@@ -89,6 +91,7 @@ def covid19HGI_prs_phewas_more(HGI_sx, HGI_cc):
         _clump_p1s=['1e-5', '1e-4', '1e-3'],
         _GBE_IDs=['INI30130', 'INI30190', 'INI30610', 'INI10030610'],
         #=======================#
+        # namespace = 'RIVAS_HG19',
         HGI_sx = HGI_sx,
         HGI_cc = HGI_cc,
         _clumpp = '1e-5'
