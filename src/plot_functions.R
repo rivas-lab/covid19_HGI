@@ -54,3 +54,43 @@ p_pval_vs_pval <- function(df){
 
 }
 
+p_HGIbeta_vs_UKBbeta <- function(df){
+    df %>% mutate(
+    plot_label =if_else(
+        (rank(-abs(BETA_HGI)) <= 10) | (rank(-abs(BETA_UKB)) <= 10),
+        if_else(is.na(SYMBOL), paste(CHROM,POS,REF,ALT, sep=':'), SYMBOL),
+        ''
+    )) %>%
+    ggplot(aes(x=BETA_HGI, y=BETA_UKB, label = plot_label, color=is_in_chr3_chemokine_region)) +
+    geom_vline(xintercept=0, color="gray") + 
+    geom_hline(yintercept=0, color="gray") +
+    geom_errorbarh(aes(xmin = BETA_HGI-SE_HGI,  xmax = BETA_HGI+SE_HGI), alpha=.3) +
+    geom_errorbar( aes(ymin = BETA_UKB-SE_UKB,  ymax = BETA_UKB+SE_UKB), alpha=.3) +
+    geom_point()+ theme_bw(base_size = 20) +
+    ggrepel::geom_text_repel(force=10, size=5) +
+    theme(legend.position='none') +
+    scale_color_manual(values=setNames(c(cb.colors[['orange']], cb.colors[['sky.blue']]), c(TRUE, FALSE))) +
+    labs(
+        x = latex2exp::TeX('GWAS BETA [SE], COVID-19 HGI'),
+        y = latex2exp::TeX('GWAS BETA [SE], UKB trait')
+    )
+}
+
+p_HGIpval_vs_UKBpval <- function(df){
+    df %>% mutate(
+        plot_label =if_else(
+            (rank(log10P_HGI) <= 5) | (rank(log10P_UKB) <= 2),
+            if_else(is.na(SYMBOL), paste(CHROM,POS,REF,ALT, sep=':'), SYMBOL),
+            ''
+    )) %>%
+    ggplot(aes(x=-log10P_HGI, y=-log10P_UKB, label = plot_label, color=is_in_chr3_chemokine_region)) +
+    geom_point()+ theme_bw(base_size = 20) +
+    ggrepel::geom_text_repel(force=10, size=5) +
+    theme(legend.position='none') +
+    scale_color_manual(values=setNames(c(cb.colors[['orange']], cb.colors[['sky.blue']]), c(TRUE, FALSE))) +
+    labs(
+        x = latex2exp::TeX('GWAS -log_{10}(P), COVID-19 HGI'),
+        y = latex2exp::TeX('GWAS -log_{10}(P), UKB trait')
+    )
+}
+

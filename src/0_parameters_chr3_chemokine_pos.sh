@@ -1,0 +1,2 @@
+chr3_chemokine_pos=45850783
+remove_half_window=1500000
