@@ -1,5 +1,7 @@
 # Flask app
 
+We have implemented a Flask app to browse the results of the PRS-PheWAS analysis. We deploy it to [Global Biobank Engine](https://gbe.stanford.edu/covid19HGI).
+
 ## local test
 
 You can run `docker-compose` on the root directory of this repo.
