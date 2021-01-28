@@ -11,7 +11,11 @@ ml load R/3.6 gcc
 GBE_ID=$1
 p_thr='1e-5'
 
-full_f=$(echo ${ukb_array_combined_sumstats_f} | sed -e "s/@@GBE_ID@@/${GBE_ID}/g"  | sed -e "s/@@suffix@@/logistic.hybrid/g") # linear
+
+
+suffix="logistic.hybrid"
+suffix="linear"
+full_f=$(echo ${ukb_array_combined_sumstats_f} | sed -e "s/@@GBE_ID@@/${GBE_ID}/g"  | sed -e "s/@@suffix@@/${suffix}/g") # linear
 filtered_f=${data_scratch_d}/UKB_MR/sumstats/${GBE_ID}.p${p_thr}.tsv.gz
 
 # helper script

@@ -16,6 +16,7 @@ HGI_suffices=(eur_leave_23andme leave_UKBB_23andme leave_23andme)
 # HGI_suffices=(eur_leave_ukbb_23andme)
 
 GBE_IDs=(BIN_FC11006152 HC166 INI30130 INI30190 INI30610 INI10030610)
+GBE_IDs=(INI30030860)
 
 out_d=${data_scratch_d}/UKB_MR/tmp_out
 

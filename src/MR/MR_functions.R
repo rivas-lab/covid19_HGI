@@ -26,7 +26,7 @@ plot_beta_vs_beta <- function(df, lmfit){
     df %>% ggplot(aes(x = BETA_ukb, y = BETA_hgi)) +
     geom_abline(
         slope = (lmfit)$coefficients[['BETA_ukb']],
-        color='red', alpha=.5
+        color='#FF4B00', alpha=.5
     ) +
     geom_errorbar( aes(ymin = BETA_hgi-SE_hgi,  ymax = BETA_hgi+SE_hgi),  alpha=.2) +
     geom_errorbarh(aes(xmin = BETA_ukb-SE_ukb,  xmax = BETA_ukb+SE_ukb),  alpha=.2) +
