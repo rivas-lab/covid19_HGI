@@ -17,6 +17,7 @@ Currently, we have the following analysis scripts.
 - [`1c_filter_to_UKB_array.R`](1c_filter_to_UKB_array.R), [`1c_filter_to_UKB_array.sh`](1c_filter_to_UKB_array.sh): filter GWAS summary statistics so that the resulting file contains the variants that are present in the directly genotyped array in UK Biobank.
 - [`2a_LD_clump.wrapper.sh`](2a_LD_clump.wrapper.sh): this script works as a wrapper for `plink` software and performs LD clumping to select the approximately independent set of GWAS associations.
 - [`2b_PRS_sscore.wrapper.sh`](2b_PRS_sscore.wrapper.sh): this script works as a wrapper for `plink` software and computes polygenic risk score (PRS) for individuals in UK Biobank.
+- [`2c_aggregate_as_master_PRS_file.ipynb`](2c_aggregate_as_master_PRS_file.ipynb): we aggregate PRS scores computed on UKB individuals into one file using this notebook.
 - [`3a_PRS_PheWAS.wrapper.sh`](3a_PRS_PheWAS.wrapper.sh): this script is a wrapper to perform PRS-PheWAS analysis, where we correlate the PRS value and the phenotypic data using the individual-level data in UK Biobank.
 - [`3b_PRS_PheWAS.check.output.sh`](3b_PRS_PheWAS.check.output.sh): this script checks the output of the PRS-PheWAS analysis.
 - [`3c_PRS_PheWAS.combine_full_results.sh`](3c_PRS_PheWAS.combine_full_results.sh): this script aggregates the results of PRS-PheWAS analysis across different phenotypes used in the PheWAS analysis. It is highly recommended to run [`3b_PRS_PheWAS.check.output.sh`](3b_PRS_PheWAS.check.output.sh) and check the existence of the files before using this script.
@@ -39,6 +40,9 @@ Currently, we have the following analysis scripts.
 - [`6f_plot.R`](6f_plot.R), [`6f_plot.sh`](6f_plot.sh): a pair of visualization script for the `UKB_PRS_PheWAS_follow_up_GWAS` analysis. We have some Jupyter notebooks where we investigate the results of a selected phenotypes.
   - [`6f_plot_INI10030610.ipynb`](6f_plot_INI10030610.ipynb)
   - [`6f_plot_INI30610.ipynb`](6f_plot_INI30610.ipynb)
+- [`7a_PRS_eval_phe_prep.ipynb`](7a_PRS_eval_phe_prep.ipynb): to evaluate the predictive performance of PRS using UKB data, we prepare a phe file and compute covariate-only score
+- [`7b_PRS_eval.R`](7b_PRS_eval.R): this script performs evaluation of predictive performance. [`7b_PRS_eval.sh`](7b_PRS_eval.sh) is the wrapper script and [`7a_PRS_eval_phe_prep.ipynb`](7a_PRS_eval_phe_prep.ipynb) is a draft version of the script.
+- [`7c_PRS_eval_table.ipynb`](7c_PRS_eval_table.ipynb): we tabluate the results using this script. The results are written to [`7c_PRS_eval_table.tsv`](7c_PRS_eval_table.tsv)
 - [`MR`](MR): Mendelian Randomization analysis
 - [`PRS_PheWAS.functions.R`](PRS_PheWAS.functions.R): this script contains helper functions for PRS-PheWAS analysis.
 - [`PRS_PheWAS.R`](PRS_PheWAS.R): this script contains the PRS-PheWAS analysis
